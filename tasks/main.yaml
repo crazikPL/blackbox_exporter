@@ -1,13 +1,13 @@
 ---
 
 - name: install prometheus blackbox_exporter
-  include: install.yaml
+  import_tasks: install.yaml
   tags:
     - prometheus
     - blackbox_exporter
 
 - name: ufw | open access to blackbox_exporter
-  include: ufw.yaml
+  import_tasks: ufw.yaml
   when: enable_ufw | bool
   tags:
     - prometheus
